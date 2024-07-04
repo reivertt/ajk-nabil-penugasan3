@@ -42,7 +42,7 @@ jobs:
           host: ${{ secrets.DEPLOY_SERVER }}
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
-          source: "./nginx/default.conf, ./mysql/my.cnf, ./php/local.ini"
+          source: "./docker-compose.yaml, ./nginx/default.conf, ./mysql/my.cnf, ./php/local.ini"
           target: "."
           overwrite: true
 
@@ -57,3 +57,5 @@ jobs:
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             docker pull ${{ secrets.DOCKER_USERNAME }}/tamiyochi:latest
             docker compose up -d
+            docker exec -i app php artisan migrate --force
+            docker exec -i app php artisan db:seed --force
