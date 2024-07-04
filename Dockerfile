@@ -29,7 +29,7 @@ COPY tamiyochi-laravel/.env.example /var/www/html/.env
 
 WORKDIR /var/www/html
 
-RUN chmod -R 775 tamiyochi-laravel/. && chown -R www-data:www-data .
+RUN chmod -R 775 tamiyochi-laravel && chown -R www-data:www-data tamiyochi-laravel
 
 RUN composer install
 
