@@ -23,13 +23,13 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN npm i -g yarn -y
 
-COPY tamiyochi-laravel/. /var/www/html
+COPY . /var/www/html
 
-COPY tamiyochi-laravel/.env.example /var/www/html/.env
+COPY .env.example /var/www/html/.env
 
 WORKDIR /var/www/html
 
-RUN chmod -R 775 tamiyochi-laravel && chown -R www-data:www-data tamiyochi-laravel
+RUN chmod -R 775 . && chown -R www-data:www-data .
 
 RUN composer install
 
@@ -38,7 +38,7 @@ RUN php artisan key:generate \
     && php artisan config:cache \
     && php artisan storage:link
 
-COPY tamiyochi-laravel/package.json tamiyochi-laravel/yarn.lock ./
+COPY package.json yarn.lock ./
 
 RUN yarn config set network-timeout 100000 -g && yarn install && yarn build
 
