@@ -25,7 +25,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/tamiyochi-laravel:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/tamiyochi:latest
           cache-from: type=gha
           cache-to: type=gha, mode=max
 
@@ -55,5 +55,5 @@ jobs:
           script: |
             cd ~
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-            docker pull ${{ secrets.DOCKER_USERNAME }}/tachiyomi-laravel:latest
+            docker pull ${{ secrets.DOCKER_USERNAME }}/tamiyochi:latest
             docker compose up -d
