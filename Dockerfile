@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     nodejs \
     npm \
+    nano \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
@@ -25,7 +26,7 @@ RUN npm i -g yarn -y
 
 COPY . /var/www/html
 
-COPY .env.exampl /var/www/html/.env
+COPY .env.example /var/www/html/.env
 
 WORKDIR /var/www/html
 
