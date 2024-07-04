@@ -25,7 +25,7 @@ RUN npm i -g yarn -y
 
 COPY . /var/www/html
 
-COPY .env.example /var/www/html/.env
+COPY .env.exampl /var/www/html/.env
 
 WORKDIR /var/www/html
 
