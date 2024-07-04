@@ -25,9 +25,9 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/tamiyochi:latest
+          tags: reivertt/tamiyochi:latest
           cache-from: type=gha
-          cache-to: type=gha, mode=max
+          cache-to: type=gha,mode=max
 
   deploy:
     runs-on: ubuntu-latest
