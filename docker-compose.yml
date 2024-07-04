@@ -33,7 +33,7 @@ services:
       - '3306:3306'
     volumes:
       - ./mysql/my.cnf:/etc/mysql/my.cnf
-      # - data:/var/www/html
+      - data:/var/www/html
     networks:
       - laravel
   
