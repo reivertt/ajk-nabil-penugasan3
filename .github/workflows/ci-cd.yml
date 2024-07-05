@@ -42,7 +42,7 @@ jobs:
           host: ${{ secrets.DEPLOY_SERVER }}
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
-          source: "./docker-compose.yml, ./nginx/default.conf, ./mysql/my.cnf, ./php/local.ini"
+          source: "./docker-compose.yml, ./nginx/default.conf, ./mysql/my.cnf, ./php/local.ini, ./package.json, ./yarn.lock"
           target: "."
           overwrite: true
 
