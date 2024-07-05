@@ -26,9 +26,9 @@ RUN npm i -g yarn -y
 
 WORKDIR /var/www/html
 
-COPY . .
+COPY . /var/www/html
 
-COPY .env.example .env
+COPY .env.example /var/www/html/.env
 
 RUN chmod -R 775 . && chown -R www-data:www-data .
 
