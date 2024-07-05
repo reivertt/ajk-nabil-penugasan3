@@ -24,11 +24,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN npm i -g yarn -y
 
-COPY . /var/www/html
-
-COPY .env.example /var/www/html/.env
-
 WORKDIR /var/www/html
+
+COPY . .
+
+COPY .env.example .env
 
 RUN chmod -R 775 . && chown -R www-data:www-data .
 
